@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="arnold">
+<head>
+    <meta name="description" content="Angular Background is an angular.js directive to dynamically set and switch the CSS background of your DOM elements">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="libs/jquery-simplecolorpicker/jquery.simplecolorpicker.css"/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title>YO</title>
+</head>
+<body ng-controller="HomeController as vm" dynamic-background background-image="{{vm.bgSrcModel || 'assets/pattern.svg'}}" background-size="1024px" background-repeat="repeat">
+    <div pattern id="container"></div>
+    <canvas class="canvas"></canvas>
+    <div class="wrapper">
+        <img src="assets/logo_collection_standard.png" alt="logo" width="200px" />
+        <p>
+            Bienvenue sur notre application. Cette application vous permet de personnaliser nos motifs de papier peint en modfiant les couleurs selon vso préférences.
+        </p>
+        <h2>Couleur 1</h2>
+        <simplecolorpicker scp-inline="true" scp-picker="vm.picker" scp-colors="vm.EventColors" scp-color="vm.selectedColor"></simplecolorpicker>
+
+        <h2>Couleur 2</h2>
+        <simplecolorpicker scp-inline="true" scp-picker="vm.picker" scp-colors="vm.EventColors" scp-color="vm.selectedColor2"></simplecolorpicker>
+        <div id="button_color_container">
+            <div class="content">
+            <a href="#" id="changeColor" ng-click="vm.renderColor()" class="btn right">
+                <span class="left title">Modifier le papier peint</span>
+                <span class="right icon icon-refresh"><span class="arrow-right"></span></span>
+            </a>
+            </div>
+        </div>
+        <p>
+            Lorsque votre choix est fait et que vous etes satifsait, n'hesitez pas à nous envoyer votre création. Un email de confirmation vous sera envoyé et nous vous contacterons très rapidement.
+        </p>
+
+        <label for="email">Email</label> <br />
+        <input type="email" name="email" id="email" placeholder="nom@email.com"/> <br />
+
+        <a href="#" id="ask" ng-click="" ng-class="{'inactive': !vm.hasChangedColor }" class="btn right">
+            <span class="left title">Nous envoyer votre création</span>
+            <span class="right icon icon-envelope"><span class="arrow-right"></span></span>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="libs/angular-background/dist/angular-background.min.js"></script>
+    <script type="text/javascript" src="libs/d3/d3.min.js"></script>
+    <script type="text/javascript" src="libs/svg-top-png/svg-to-png.js"></script>
+    <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/jquery-simplecolorpicker/jquery.simplecolorpicker.js"></script>
+    <script type="text/javascript" src="js/angular-simplecolor/angular.simplecolor.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/home/controller.js"></script>
+
+</body>
+</html>
